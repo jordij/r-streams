@@ -1,0 +1,16 @@
+sitename,streamname,NativeForest,Forestry,Horticulture,Pasture,Urban,lat,lon,sitetype,bottom
+Otara LTB,Otara,0,0.2,0,14.9,84.9,1768326,5908371,urban,soft
+Mahurangi LTB,Mahurangi,1.9,97.9,0,0.2,0,1747626,5964882,forestry,soft
+Oakley LTB,Oakley LTB,2.3,0,0,0,97.7,1751914,5917503,urban,soft
+Ngakaroa LTB,Ngakaroa,4.2,0.8,20.8,74.2,0,1775165,5881618,pasture,soft
+Puhinui LTB,Puhinui,7.1,0,0,52.4,40.5,1766445,5904298,urban,soft
+Papakura LTB,Papakura LTB,8.1,2.5,0.9,85.6,2.9,1771523,5901203,pasture,soft
+Oteha LTB,Oteha,8.6,2.4,0.1,14.5,74.3,1751903,5932876,urban,soft
+Kumeu @ Weza,Kumeu,11.4,4.5,4.8,78.4,0.9,1739216,5928819,pasture,soft
+Hoteo @ Kraak Hill,Hoteo,20.2,23.9,0.1,55.6,0.2,1743264,5974291,pasture,soft
+Vaughan Lower,Vaughns Lower,23.1,10.6,0,59.6,6.7,1755414,5938729,pasture,soft
+Wairoa LTB,Wairoa,26.7,16.1,0,57.2,0,1782680,5901828,pasture,soft
+Matakana LTB,Matakana,39.7,14.8,0,45.5,0,1753615,5976422,pasture,soft
+Opanuku LTB,Opanuku,83,0,0,17,0,1742087,5915597,native,hard
+West Hoe LTB,West Hoe,99.6,0,0,0.4,0,1748300,5950608,native,soft
+Cascades LTB,Cascade LTB,100,0,0,0,0,1735633,5916371,native,hard
