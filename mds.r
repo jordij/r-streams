@@ -25,12 +25,6 @@ dsamples$date <- as.Date(dsamples$date, format="%d/%m/%Y")
 # Keep only sites we want
 dsamples <- dsamples[dsamples$site %in% dsites$sitename,]
 dsamples <- droplevels(dsamples)
-
-##############################################################
-# Scatter plots with regression lines
-# By Native Forest
-##############################################################
-
 dsamples <- merge(dsamples, dsites, by.x = c("site"), by.y = c("sitename"))
 # Change some levels otherwise labels overlap
 levels(dsamples$streamname)[levels(dsamples$streamname) == "Otara"] <- "Otara"
@@ -78,18 +72,18 @@ diffcols <- setdiff(colnames(dtsamples), list("streamname", "sitetype"))
 dtypes <- dtsamples %>% distinct(sitetype, streamname, .keep_all = F)
 dtsamples$sitetype <- NULL # drop type, will add later
 dtsamples_simpl <- aggregate(. ~ streamname, transform(dtsamples, streamname = streamname), mean)
-
+# add site type (forestry, pasture etc..)
 dtsamples_simpl$sitetype <- dtypes$sitetype
-
+# NMDS
 dtsamples_co <- metaMDS(comm = dtsamples_simpl[diffcols], distance = "bray", trace = FALSE, autotransform = FALSE)
 spsc <- as.data.frame(scores(dtsamples_co, "species"))
 # add species and type back
 spsc$species <- rownames(spsc)
-
+# get points, site name and type
 MDS_xy <- data.frame(dtsamples_co$points)
 MDS_xy$streamname <- dtsamples_simpl$streamname
 MDS_xy$sitetype <- dtsamples_simpl$sitetype
-
+# plot
 mdsplot <- ggplot(MDS_xy, aes(MDS1, MDS2)) + 
     geom_text(aes(label=streamname, colour=sitetype), size=5) + # stream names
     geom_point(data=spsc, aes(x=NMDS1,y=NMDS2), size=1, alpha=0.5) +  # add the species labels
@@ -104,7 +98,6 @@ mdsplot <- ggplot(MDS_xy, aes(MDS1, MDS2)) +
     theme(panel.grid=element_blank(), panel.border=element_rect(colour = "black", fill=NA, size=0.5)) +
     scale_colour_manual(values=c("#006266", "#009900", "#FF6633", "#993333")) +
     guides(colour=guide_legend(title=""))
-    
 png(file="./output/mds.png", width=800, height=400)
 print(mdsplot)
 dev.off()
